@@ -8,16 +8,16 @@ init(autoreset=True)
 delay = 0.04
 
 def clear_terminal():
-    os.system("clear")  # Use 'cls' for Windows, 'clear' for Linux/Mac
+    os.system("clear")
 
 def ascii(file_location):
     expanded_path = os.path.expanduser(file_location)
     try:
-        subprocess.run(["ascii_py", "-s", "10", "-t", expanded_path])
+        subprocess.run(["ascii_py", "-t", expanded_path])
     except FileNotFoundError:
         print("Error: The 'ascii_py' command not found. Please make sure it's installed and in your PATH.")
 
-    time.sleep(1)  # Adjust as needed
+    time.sleep(1)
 
 def type_text(text, delays):
     colored_text = (
