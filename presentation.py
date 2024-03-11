@@ -1,6 +1,9 @@
 import os
 import subprocess
 import time
+import pygame
+
+pygame.mixer.init()
 
 delay = 0.06
 
@@ -33,6 +36,9 @@ def mpv(file_location):
 def type_text(text, delays):
     for char in text:
         print(char, end='', flush=True)
+        pygame.mixer.music.load("key_sound.wav")
+        pygame.mixer.music.play()
+        pygame.mixer.music.set_volume(0.008)
         time.sleep(delays)
     print()
 
@@ -62,7 +68,7 @@ slides = [
     "a new programming language called Go. \nThis was a challenge, but converting an old university python project to "
     "go was surprisingly fun! \nHas anyone else faced a steep learning curve during the internship? [small quick "
     "example video shown below of the project].",
-    
+
     "After a lot of training and overcoming challenges, I received my first task from the manager –  simple but still "
     "encountered some issues trying to finish it. With help from my work buddy, I managed to get through it. "
     "\n./skill-issue-coding.gif",
