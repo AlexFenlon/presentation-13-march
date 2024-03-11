@@ -20,11 +20,10 @@ def ascii(file_location):
 
 def mpv(file_location):
     try:
-        subprocess.run(
-            ["mpv", "--no-config", "--vo=tct", "--speed=2", file_location])  # found @ https://github.com/mpv-player/mpv
-        if file_location == "pairprogramming.gif" or "fireworks.gif":
-            subprocess.run(
-                ["mpv", "--no-config", "--vo=tct", "--loop", file_location])  # found @ https://github.com/mpv-player/mpv
+        loop_gifs = ["pairprogramming.gif", "fireworks.gif"]
+        option = "--loop" if file_location in loop_gifs else "--speed=2" # q to quit
+
+        subprocess.run(["mpv", "--no-config", "--vo=tct", option, file_location])  # found @ https://github.com/mpv-player/mpv
     except FileNotFoundError:
         print(
             "Error: The 'mpv' command not found. Please install by using the command python3 -m pip install mpv to install mpv ")
@@ -47,7 +46,7 @@ slides = [
 
     "The first day was quite unique, 2 other interns started with me on the 1st of February! It was also our "
     "F5 day. Met lots of people, got set up, had a tour and even had a few games of pool!\nWe had pizza, cupcakes and a"
-    "presentation afterwards. It was definitely an eventful day. \nDid anyone else have an unusual start to their "
+    " presentation afterwards. It was definitely an eventful day. \nDid anyone else have an unusual start to their "
     "internship? \n/1707205688312.jpeg",
 
     "The initial two weeks were overwhelming with lots of information being thrown all at once, encountering outdated "
@@ -62,7 +61,7 @@ slides = [
     "Coming from university, I knew the basics of a lot of programming languages but staring at NGINX, I had to learn "
     "a new programming language called Go. \nThis was a challenge, but converting an old university python project to "
     "go was surprisingly fun! \nHas anyone else faced a steep learning curve during the internship? [small quick "
-    "example video shown below of the project]."
+    "example video shown below of the project].",
     
     "After a lot of training and overcoming challenges, I received my first task from the manager –  simple but still "
     "encountered some issues trying to finish it. With help from my work buddy, I managed to get through it. "
@@ -71,7 +70,7 @@ slides = [
     "I got tasked to do another 'easy' change to the code base, it was to move 1 line of code in two files up. This "
     "took a turn as I had to do a lot of testing and it took way longer than expected. \nI had to make my own app, "
     "integrate it within the NGINX program and debug it. I struggled a lot but having a co-worker helping and working "
-    "with me helped a lot. I learned a lot new programs and tools which will be very important for my future in "
+    "with me helped a lot. \nI learned a lot new programs and tools which will be very important for my future in "
     "NGINX. [small video demonstrating it here]    \nWhat was your first significant task as an intern?",
 
     "As stated in the past 2 slides, Collaboration was key, especially during challenging tasks. Being able to reach "
@@ -80,7 +79,7 @@ slides = [
 
     "In conclusion, my journey so far has been very informative and fun and I'm really enjoying my time at NGINX. "
     "Through collaboration and learning, I've grown a lot both personally and professionally.\n I could not have asked "
-    "for a better company for the first job. Thank you for your time.[fireworks animation gif]"
+    "for a better company for the first job. Thank you for your time."
     "\n./fireworks.gif"
 
 ]
